@@ -7,7 +7,7 @@ interface Props {
 
 const AsideLink: React.FC<Props> = ({link}) => {
   return (
-    <div className="p-4 bg-white rounded-xl w-[200px] bg-[#393939] text-white">
+    <div className="p-4 rounded-xl w-[200px] bg-[#393939] text-white">
       {link.text}
     </div>
   )

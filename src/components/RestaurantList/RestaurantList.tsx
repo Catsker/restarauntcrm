@@ -2,7 +2,6 @@ import React from "react"
 import Restaurant from "@/components/Restaurant"
 import type {RestaurantData} from "@/types"
 import {RESTAURANTS} from "@/consts";
-import MainLogo from "@/assets/icons/mainlogo.svg"
 
 const RestaurantList: React.FC = () => {
   return (

@@ -2,6 +2,7 @@ import React from "react"
 import AsideLink from "@/components/AsideLink";
 import type {AsideLinkType} from "@/types";
 import { ASIDE_ICONS } from '@/consts'
+import LogOutButton from "@/components/LogOutButton";
 
 const AsideTopLinks: AsideLinkType[] = [
   {
@@ -43,12 +44,7 @@ const Aside: React.FC = () => {
             </ul>
           </div>
         </div>
-
-        <AsideLink link={{
-          icon: ASIDE_ICONS.LOGOUT,
-          text: 'Log Out',
-          href: ''
-        }}/>
+        <LogOutButton />
       </div>
     </aside>
   )

@@ -22,7 +22,7 @@ export const CUISINE = {
   HAWAIIAN: 'Hawaiian'
 } as const;
 
-export type Cuisine = typeof CUISINE[keyof typeof CUISINE];
+export type Cuisine = typeof CUISINE[keyof typeof CUISINE] | string;
 
 export interface Dish {
   name: string
@@ -43,5 +43,5 @@ export interface RestaurantData {
 export interface AsideLinkType {
   text: string
   icon: string
-  to: string
+  href: string
 }

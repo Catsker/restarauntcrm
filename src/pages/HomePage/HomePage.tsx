@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="flex">
-      <Aside></Aside>
+      <Aside />
       <RestaurantList />
     </div>
   )

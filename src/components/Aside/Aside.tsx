@@ -8,17 +8,17 @@ const AsideTopLinks: AsideLinkType[] = [
   {
     icon: ASIDE_ICONS.DASHBOARD,
     text: 'Dashboard',
-    to: ''
+    href: ''
   },
   {
     icon: ASIDE_ICONS.EMPLOYERS,
     text: 'Employers',
-    to: ''
+    href: ''
   },
   {
     icon: ASIDE_ICONS.BRANCHES,
     text: 'Branches',
-    to: ''
+    href: ''
   },
 ]
 
@@ -31,10 +31,8 @@ const Aside: React.FC = () => {
       <div className="pt-6">
         <ul className="flex flex-col gap-2">
           {AsideTopLinks.map((link) => (
-            <li className="">
-              <AsideLink
-                link={link}
-              />
+            <li>
+              <AsideLink link={link}/>
             </li>
           ))}
         </ul>

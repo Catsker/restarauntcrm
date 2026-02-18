@@ -5,12 +5,10 @@ interface Props {
   link: AsideLinkType;
 }
 
-const AsideLink: React.FC<Props> = ({link}) => {
-  return (
-    <div className="p-4 rounded-xl w-[200px] bg-[#393939] text-white">
-      {link.text}
-    </div>
-  )
-}
+const AsideLink: React.FC<Props> = ({link}) => (
+  <div className="p-4 rounded-xl w-[200px] bg-[#393939] text-white">
+    {link.text}
+  </div>
+)
 
 export default AsideLink

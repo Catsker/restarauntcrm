@@ -1,7 +1,7 @@
 import React from 'react'
 
 type Props = {
-  type: string
+  type: HTMLInputElement['type']
   placeholder: string
   value: string
   onInputChange: (value: string) => void

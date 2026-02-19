@@ -45,3 +45,8 @@ export interface AsideLinkType {
   icon: string
   href: string
 }
+
+export interface TableType {
+  tableNumber: number
+  status: 'Occ' | 'Res' | 'Free'
+}

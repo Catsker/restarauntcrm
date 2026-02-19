@@ -8,6 +8,7 @@ import {
 import {getStoredUser} from '@/shared/lib/useAuth'
 import HomePage from '@/pages/HomePage'
 import LoginPage from "@/pages/LoginPage";
+import TablesPage from "@/pages/TablesPage"
 
 const rootRoute = createRootRoute({
     component: () => (
@@ -28,6 +29,19 @@ const indexRoute = createRoute({
     component: HomePage,
 })
 
+const tablesRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/tables',
+    beforeLoad: () => {
+        const user = getStoredUser()
+
+        if (!user) {
+            throw redirect({to: '/login'})
+        }
+    },
+    component: TablesPage,
+})
+
 const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/login',
@@ -43,7 +57,8 @@ const loginRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([
     indexRoute,
-    loginRoute
+    loginRoute,
+    tablesRoute
 ])
 
 export const router = createRouter({routeTree})

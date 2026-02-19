@@ -6,10 +6,20 @@ export type LoginPayload = {
 }
 
 export const loginRequest = async (payload: LoginPayload) => {
-  const { data } = await axios.post(
-    'https://dummyjson.com/auth/login',
-    payload
-  )
+  try {
+    const { data } = await axios.post(
+      'https://dummyjson.com/auth/login',
+      payload
+    )
 
-  return data
+    return data
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const serverMessage = error.response?.data?.message
+
+      throw new Error(serverMessage || 'Login failed')
+    }
+
+    throw new Error('Unexpected error')
+  }
 }

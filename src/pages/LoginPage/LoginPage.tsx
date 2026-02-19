@@ -1,13 +1,13 @@
-import React from "react"
-import {useState} from 'react'
+import React, {useState} from "react"
 import {useMutation} from '@tanstack/react-query'
 import {useNavigate} from '@tanstack/react-router'
 import {loginRequest} from '@/shared/api/auth'
 import {setStoredUser} from '@/shared/lib/useAuth'
+import InputLogin from "@/components/InputLogin";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate()
-  const [username, setUsername] = useState('')
+  const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
 
   const mutation = useMutation({
@@ -18,8 +18,14 @@ const LoginPage: React.FC = () => {
     },
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+
+    const username = formData.get('username') as string
+    const password = formData.get('password') as string
+
     mutation.mutate({username, password})
   }
 
@@ -32,34 +38,32 @@ const LoginPage: React.FC = () => {
         noValidate
       >
         <p className="text-white font-bold f">PLEASE, LOG IN</p>
-        <input
+        <InputLogin
+          name="username"
           type="email"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck="false"
-          data-lpignore="true"
-          className="p-2 bg-[#7B7B7B] text-white placeholder:text-[#D3D3D3]"
           placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={login}
+          onInputChange={(value) => setLogin(value)}
         />
-        <input
+        <InputLogin
+          name="password"
           type="password"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck="false"
-          data-lpignore="true"
-          className="p-2 bg-[#7B7B7B] placeholder:text-[#D3D3D3]"
           placeholder="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onInputChange={(value) => setPassword(value)}
         />
         {mutation.isError && (
-          <p className="text-red-600">Password or login is wrong. Try Again.</p>
+          <p className="text-red-600">
+            {mutation.error?.message}
+          </p>
         )}
-        <button className="text-white p-2 border-2 hover:bg-white hover:text-[#222222]" type="submit">Log In</button>
+        <button
+          className="text-white p-2 border-2 enabled:hover:bg-white enabled:hover:text-[#222222] disabled:text-[#7B7B7B] disabled:border-[#7B7B7B]"
+          type="submit"
+          disabled={password.length < 8 || login === ''}
+        >
+          Log In
+        </button>
       </form>
     </div>
   )

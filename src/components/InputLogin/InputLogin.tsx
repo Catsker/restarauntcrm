@@ -1,7 +1,6 @@
 import React from 'react'
 
 type Props = {
-  name: string
   type: string
   placeholder: string
   value: string
@@ -9,9 +8,8 @@ type Props = {
 }
 
 
-const InputLogin: React.FC<Props> = ({name, type, placeholder, value, onInputChange}) => (
+const InputLogin: React.FC<Props> = ({type, placeholder, value, onInputChange}) => (
   <input
-    name={name}
     type={type}
     placeholder={placeholder}
     className="p-2 bg-[#7B7B7B] placeholder:text-[#D3D3D3] text-white"

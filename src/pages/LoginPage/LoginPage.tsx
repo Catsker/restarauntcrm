@@ -7,7 +7,7 @@ import InputLogin from "@/components/InputLogin";
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate()
-  const [login, setLogin] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const mutation = useMutation({
@@ -20,11 +20,6 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    const formData = new FormData(e.currentTarget)
-
-    const username = formData.get('username') as string
-    const password = formData.get('password') as string
 
     mutation.mutate({username, password})
   }
@@ -39,14 +34,12 @@ const LoginPage: React.FC = () => {
       >
         <p className="text-white font-bold f">PLEASE, LOG IN</p>
         <InputLogin
-          name="username"
           type="email"
           placeholder="username"
-          value={login}
-          onInputChange={(value) => setLogin(value)}
+          value={username}
+          onInputChange={(value) => setUsername(value)}
         />
         <InputLogin
-          name="password"
           type="password"
           placeholder="password"
           value={password}
@@ -60,7 +53,7 @@ const LoginPage: React.FC = () => {
         <button
           className="text-white p-2 border-2 enabled:hover:bg-white enabled:hover:text-[#222222] disabled:text-[#7B7B7B] disabled:border-[#7B7B7B]"
           type="submit"
-          disabled={password.length < 8 || login === ''}
+          disabled={password.length < 8 || username === ''}
         >
           Log In
         </button>

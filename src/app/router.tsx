@@ -29,7 +29,7 @@ const indexRoute = createRoute({
     component: HomePage,
 })
 
-const tablesRoute = createRoute({
+export const tablesRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/tables',
     beforeLoad: () => {

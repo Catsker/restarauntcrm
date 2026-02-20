@@ -46,7 +46,14 @@ export interface AsideLinkType {
   href: string
 }
 
+export type TableStatus = 'Occ' | 'Res' | 'Free'
+
 export interface TableType {
   tableNumber: number
-  status: 'Occ' | 'Res' | 'Free'
+  status: TableStatus
+}
+
+export interface statisticsType {
+  type: TableStatus
+  count: number
 }

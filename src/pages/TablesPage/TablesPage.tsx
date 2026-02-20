@@ -57,7 +57,6 @@ const TablesPage: React.FC = () => {
     }
   ]
 
-
   return (
     <div className="flex">
       <Aside/>

@@ -16,7 +16,7 @@ const TablesPage: React.FC = () => {
     navigate({
       to: '/tables',
       search: newFilter !== filterStatus
-        ? {filterStatus: newFilter}  // если есть значение - добавляем
+        ? {filterStatus: newFilter}
         : {}
     });
   };

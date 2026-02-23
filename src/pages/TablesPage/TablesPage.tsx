@@ -39,14 +39,12 @@ const TablesPage: React.FC = () => {
           ))}
         </ul>
         <ul className="grid grid-cols-6 gap-[75px] bg-[#F9F9F9] p-[24px] py-[48px] rounded-xl">
-          {TABLES_LIST.map((table: TableType) => (
+          {TABLES_LIST.map((item: TableType) => (
             <li
-              key={table.tableNumber}
-              className={filterStatus && filterStatus !== table.status ? "opacity-0 pointer-events-none" : undefined}
+              key={item.tableNumber}
+              className={filterStatus && filterStatus !== item.status ? "opacity-0 pointer-events-none" : undefined}
             >
-              <Table
-                table={table}
-              />
+              <Table table={item} />
             </li>
           ))}
         </ul>

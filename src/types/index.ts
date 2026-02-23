@@ -46,14 +46,28 @@ export interface AsideLinkType {
   href: string
 }
 
-export type TableStatus = 'Occ' | 'Res' | 'Free'
+export const TABLE_STATUS = {
+  Occ: 'Occupied',
+  Res: 'Reserved',
+  Free: 'Free',
+} as const
+
+export const TABLE_STATUS_REVERSE = Object.fromEntries(
+  Object.entries(TABLE_STATUS).map(([k, v]) => [v, k])
+) as { [K in TableStatusFull]: TableStatusShort }
+
+export type TableStatusShort = keyof typeof TABLE_STATUS
+
+export type TableStatusFull = (typeof TABLE_STATUS)[TableStatusShort]
+
+export type TableStatusType = TableStatusShort | TableStatusFull
 
 export interface TableType {
   tableNumber: number
-  status: TableStatus
+  status: TableStatusShort
 }
 
 export interface statisticsType {
-  type: TableStatus
+  type: TableStatusShort
   count: number
 }

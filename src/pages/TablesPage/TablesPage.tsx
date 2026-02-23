@@ -1,7 +1,7 @@
 import React from 'react'
 import {tablesRoute} from '@/app/router.tsx'
 import {useNavigate} from '@tanstack/react-router'
-import type {TableType, statisticsType, TableStatusShort} from "@/types";
+import type {TableType, statisticsType, TableStatus} from "@/types";
 import Aside from "@/components/Aside";
 import Table from "@/components/Table";
 import TablesStatistics from "@/components/TablesStatistics";
@@ -12,7 +12,7 @@ const TablesPage: React.FC = () => {
   const navigate = useNavigate();
   const {filterStatus} = tablesRoute.useSearch();
 
-  const updateFilter = (newFilter: TableStatusShort | null) => {
+  const updateFilter = (newFilter: TableStatus | null) => {
     navigate({
       to: '/tables',
       search: newFilter !== filterStatus

@@ -17,7 +17,6 @@ const Table = ({table}: Props) => {
         ${variantClasses[table.status]}
       `}>
       <span className="font-bold">{table.tableNumber}</span>
-
     </div>
   )
 }

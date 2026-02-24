@@ -7,12 +7,12 @@ interface Props {
 
 const Restaurant: React.FC<Props> = ({restaurant}) => {
   return (
-    <div className="border border-[#E1E1E1] rounded-xl p-3">
+    <div className="border border-[#E1E1E1] rounded-xl p-3 min-w-[170px]">
       <div className="flex flex-col gap-3">
-        <ul className="flex gap-1">
+        <ul className="grid grid-cols-4 gap-1">
           {restaurant.dishes.map((item: Dish) => (
-            <li key={item.name} className="rounded-xl overflow-hidden">
-              <img className="" src={item.image} alt=""/>
+            <li key={item.image} className="rounded-xl overflow-hidden flex">
+              <img className="block object-cover w-full h-full" src={item.image} />
             </li>
           ))}
         </ul>

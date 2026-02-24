@@ -1,22 +1,29 @@
-import React from "react"
 import Restaurant from "@/components/Restaurant"
-import type {RestaurantData} from "@/types"
-import restaurantsData from '@/data/restaurants.json';
+import type {RestaurantData, Cuisine} from "@/types"
+import RestaurantListFilters from "@/components/RestaurantListFilters";
 
-const restaurants = restaurantsData as RestaurantData[];
+interface Props {
+  filteredRestaurants: RestaurantData[]
+  allRestaurantCuisines: Cuisine[]
+}
 
-const RestaurantList: React.FC = () => {
-  return (
-    <div className="p-6 max-w-[300px]">
+const RestaurantList = ({filteredRestaurants, allRestaurantCuisines}: Props) => (
+  <div className="py-4">
+    <RestaurantListFilters
+      allRestaurantCuisines={allRestaurantCuisines}
+    />
+    <div className="max-w-[300px]">
       <ul className="flex flex-col gap-4">
-        {restaurants.map((restaurant: RestaurantData) => (
-          <li key={restaurant.address}>
-            <Restaurant restaurant={restaurant}/>
+        {filteredRestaurants.map((item: RestaurantData) => (
+          <li key={item.name}>
+            <Restaurant
+              restaurant={item}
+            />
           </li>
         ))}
       </ul>
     </div>
-  )
-}
+  </div>
+)
 
 export default RestaurantList

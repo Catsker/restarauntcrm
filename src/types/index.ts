@@ -24,16 +24,15 @@ export const CUISINE = {
 
 export type Cuisine = typeof CUISINE[keyof typeof CUISINE] | string;
 
-export interface Dish {
-  name: string
+export type Dish = {
   image: string
-  cuisine: Cuisine
 }
 
 export interface RestaurantData {
   name: string
   city: string
-  address: string
+  lat: number
+  lng: number
   rate: '$' | '$$' | '$$$'
   distance: number
   dishes: Dish[]

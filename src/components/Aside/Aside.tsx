@@ -37,7 +37,7 @@ const Aside: React.FC = () => {
           <div className="pt-6">
             <ul className="flex flex-col gap-2">
               {AsideTopLinks.map((link) => (
-                <li>
+                <li key={link.href}>
                   <AsideLink link={link}/>
                 </li>
               ))}

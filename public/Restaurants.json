@@ -1,0 +1,151 @@
+[
+  {
+    "name": "Cibo Italiano",
+    "distance": 573,
+    "city": "Brest",
+    "lat": 52.088400,
+    "lng": 23.699371,
+    "rate": "$$",
+    "cuisine": "Italian",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/1.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/4.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/7.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/9.webp"
+      }
+    ]
+  },
+  {
+    "name": "Sushi & Rolls",
+    "distance": 431,
+    "city": "Brest",
+    "lat": 52.102400,
+    "lng": 23.734371,
+    "rate": "$",
+    "cuisine": "Asian",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/2.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/8.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/44.webp"
+      }
+    ]
+  },
+  {
+    "name": "Pakistan",
+    "distance": 329,
+    "city": "Brest",
+    "lat": 52.103400,
+    "lng": 23.777371,
+    "rate": "$",
+    "cuisine": "Pakistani",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/11.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/12.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/13.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/14.webp"
+      }
+    ]
+  },
+  {
+    "name": "Arigato",
+    "distance": 624,
+    "city": "Brest",
+    "lat": 52.092400,
+    "lng": 23.719271,
+    "rate": "$$",
+    "cuisine": "Japanese",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/16.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/34.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/42.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/48.webp"
+      }
+    ]
+  },
+  {
+    "name": "Perfetto",
+    "distance": 341,
+    "city": "Brest",
+    "lat": 52.106,
+    "lng": 23.72999,
+    "rate": "$$$",
+    "cuisine": "Italian",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/46.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/45.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/23.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/22.webp"
+      }
+    ]
+  },
+  {
+    "name": "Τροφή των θεών",
+    "distance": 863,
+    "city": "Brest",
+    "lat": 52.0700,
+    "lng": 23.729371,
+    "rate": "$",
+    "cuisine": "Greek",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/19.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/38.webp"
+      }
+    ]
+  },
+  {
+    "name": "Mexican Food",
+    "distance": 420,
+    "city": "Brest",
+    "lat": 52.077400,
+    "lng": 23.742371,
+    "rate": "$",
+    "cuisine": "Mexican",
+    "dishes": [
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/5.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/36.webp"
+      },
+      {
+        "image": "https://cdn.dummyjson.com/recipe-images/43.webp"
+      }
+    ]
+  }
+]

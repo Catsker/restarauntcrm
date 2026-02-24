@@ -7,7 +7,6 @@ import { indexRoute } from '@/app/router.tsx'
 
 const HomePage: React.FC = () => {
   const { data, isLoading, error } = useRestaurants()
-  console.log("data", data)
   const search = indexRoute.useSearch()
 
   const selectedCuisines = search.cuisines ?? []

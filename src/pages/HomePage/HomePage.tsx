@@ -30,7 +30,6 @@ const HomePage: React.FC = () => {
           allRestaurantCuisines={allCuisines}
         />
       </div>
-
       <div className="w-full h-screen]">
         <MapComponent
           restaurants={filteredRestaurants}

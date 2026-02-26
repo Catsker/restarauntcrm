@@ -60,7 +60,6 @@ const TablesPage: React.FC = () => {
                   key={item.tableNumber}
                   className={`
                     border border-[#B1B1B1] rounded-2xl overflow-hidden 
-                    hover:shadow-[0_0_15px_rgba(0,0,0,0.1)] 
                     hover:shadow-[0_0_25px_rgba(0,0,0,0.2)] 
                     hover:-translate-y-1  
                     transition-all  

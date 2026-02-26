@@ -23,10 +23,9 @@ export const useTableOrders = (tableId?: number) => {
 interface ToggleDishParams {
   tableId: number;
   dish: RecipeType;
-  isAlreadySelected: boolean;
 }
 
-const toggleDishInStorage = async ({ tableId, dish, isAlreadySelected }: ToggleDishParams) => {
+const toggleDishInStorage = async ({ tableId, dish }: ToggleDishParams) => {
   const storedData = localStorage.getItem(STORAGE_KEY)
   const currentOrders: Record<number, RecipeType[]> = storedData ? JSON.parse(storedData) : {}
 
@@ -34,7 +33,9 @@ const toggleDishInStorage = async ({ tableId, dish, isAlreadySelected }: ToggleD
     currentOrders[tableId] = []
   }
 
-  if (isAlreadySelected) {
+  const isCurrentlySelected = currentOrders[tableId].some(d => d.id === dish.id)
+
+  if (isCurrentlySelected) {
     currentOrders[tableId] = currentOrders[tableId].filter(d => d.id !== dish.id)
   } else {
     currentOrders[tableId].push(dish)

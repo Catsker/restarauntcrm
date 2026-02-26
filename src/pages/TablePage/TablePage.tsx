@@ -19,17 +19,12 @@ const TablePage: React.FC = () => {
 
   const {currentTableDishes} = useTableOrders(tableNumber)
 
-  const allRecipes = data ?? []
-
   const toggleDishMutation = useToggleDish()
 
   const handleRecipeSelected = (item: RecipeType) => {
-    const isSelected = currentTableDishes.some((dish: RecipeType) => dish.id === item.id)
-
     toggleDishMutation.mutate({
       tableId: tableNumber,
       dish: item,
-      isAlreadySelected: isSelected,
     })
   }
 
@@ -39,14 +34,13 @@ const TablePage: React.FC = () => {
   };
 
   if (isLoading) return <div className="p-6">Loading...</div>
-  if (isError || !data) return <div className="p-6 text-red-500">Error</div>
+  if (isError || !data || data.length === 0) return <div className="p-6 text-red-500">Error</div>
 
   return (
     <div className="flex">
       <Aside/>
       <div className="w-full p-6">
         <h1 className="text-2xl font-bold mb-4">Table №{tableNumber}</h1>
-
         {(currentTableDishes.length === 0 && getTableStatus(tableNumber) === "reserved") ? (
           <div>
             <p>Table is Reserved! Select another one.</p>
@@ -54,15 +48,19 @@ const TablePage: React.FC = () => {
           </div>
         ) : (
           <ul className="grid grid-cols-5 gap-4">
-            {allRecipes.map((item) => (
-              <li key={item.id} className="p-6 rounded-xl bg-[#F9F9F9]">
-                <Recipe
-                  recipe={item}
-                  isRecipeSelected={currentTableDishes.some((dish) => dish.id === item.id)}
-                  handleOrder={() => handleRecipeSelected(item)}
-                />
-              </li>
-            ))}
+            {data.map((item) => {
+              const isSelected = currentTableDishes.some((dish) => dish.id === item.id)
+
+              return (
+                <li key={item.id} className="p-6 rounded-xl bg-[#F9F9F9] shadow-sm">
+                  <Recipe
+                    recipe={item}
+                    isRecipeSelected={isSelected}
+                    handleOrder={() => handleRecipeSelected(item)}
+                  />
+                </li>
+              )
+            })}
           </ul>
         )}
       </div>

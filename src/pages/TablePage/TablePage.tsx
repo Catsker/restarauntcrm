@@ -18,7 +18,6 @@ const TablePage: React.FC = () => {
   const tableNumber = Number(n)
 
   const {currentTableDishes} = useTableOrders(tableNumber)
-  console.log("currentTableDishes", currentTableDishes)
 
   const allRecipes = data ?? []
 
@@ -52,7 +51,6 @@ const TablePage: React.FC = () => {
           <div>
             <p>Table is Reserved! Select another one.</p>
             <Link to="/tables" className="text-blue-400">Go to /tables</Link>
-
           </div>
         ) : (
           <ul className="grid grid-cols-5 gap-4">

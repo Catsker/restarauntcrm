@@ -56,3 +56,20 @@ export interface statisticsType {
   type: TableStatus
   count: number
 }
+
+export interface RecipeType {
+  id: number;
+  name: string;
+  prepTimeMinutes: number;
+  cookTimeMinutes: number;
+  caloriesPerServing: number;
+  image: string;
+  rating: number;
+}
+
+export interface RecipesResponse {
+  recipes: RecipeType[];
+  total: number;
+  skip: number;
+  limit: number;
+}

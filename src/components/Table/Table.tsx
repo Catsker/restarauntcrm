@@ -13,7 +13,7 @@ const variantClasses: Record<TableStatus, string> = {
 const Table = ({table}: Props) => {
   return (
     <div className={`
-        border border-[#B1B1B1] h-[119px] relative p-2 rounded-2xl overflow-hidden after:rounded-bl-xl after:font-bold after:absolute after:top-0 after:right-0 after:p-1
+        h-[119px] relative p-2 after:rounded-bl-xl after:font-bold after:absolute after:top-0 after:right-0 after:p-1
         ${variantClasses[table.status]}
       `}>
       <span className="font-bold">{table.tableNumber}</span>

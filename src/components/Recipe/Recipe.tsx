@@ -19,9 +19,7 @@ const Recipe = ({recipe, isRecipeSelected, handleOrder}: Props) => (
     <AddRecipeButton
       onClick={handleOrder}
       isRecipeSelected={isRecipeSelected}
-    >
-
-    </AddRecipeButton>
+    />
   </div>
 )
 

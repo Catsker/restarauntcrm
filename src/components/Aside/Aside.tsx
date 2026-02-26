@@ -8,17 +8,17 @@ const AsideTopLinks: AsideLinkType[] = [
   {
     icon: ASIDE_ICONS.BRANCHES,
     text: 'Branches',
-    href: ''
+    href: '/'
   },
   {
-    icon: ASIDE_ICONS.EMPLOYESS,
-    text: 'Employess',
-    href: ''
+    icon: ASIDE_ICONS.ORDERS,
+    text: 'Orders',
+    href: '/orders'
   },
   {
     icon: ASIDE_ICONS.TABLES,
     text: 'Tables',
-    href: ''
+    href: '/tables'
   },
 ]
 

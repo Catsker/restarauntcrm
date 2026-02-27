@@ -11,6 +11,7 @@ import HomePage from '@/pages/HomePage'
 import LoginPage from "@/pages/LoginPage";
 import TablesPage from "@/pages/TablesPage"
 import TablePage from "@/pages/TablePage";
+import OrdersPage from "@/pages/OrdersPage";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -67,7 +68,7 @@ export const tableRoute = createRoute({
   component: TablePage
 })
 
-const loginRoute = createRoute({
+export const loginRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/login',
   beforeLoad: () => {
@@ -80,11 +81,25 @@ const loginRoute = createRoute({
   component: LoginPage,
 })
 
+export const ordersRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/orders',
+  beforeLoad: () => {
+    const user = getStoredUser()
+
+    if (!user) {
+      throw redirect({to: '/login'})
+    }
+  },
+  component: OrdersPage,
+})
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   loginRoute,
   tablesRoute,
-  tableRoute
+  tableRoute,
+  ordersRoute
 ])
 
 export const router = createRouter({routeTree})

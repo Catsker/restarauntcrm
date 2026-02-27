@@ -17,7 +17,7 @@ interface MapProps {
 }
 
 const MapComponent = ({restaurants, center = [52.0975, 23.7343], zoom = 13}: MapProps) => (
-  <div className="sticky top-0 h-screen w-full rounded-lg overflow-hidden">
+  <div className="sticky top-0 h-screen p-2 w-full rounded-lg overflow-hidden">
     <MapContainer
       center={center}
       zoom={zoom}

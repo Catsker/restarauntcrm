@@ -24,27 +24,27 @@ const AsideTopLinks: AsideLinkType[] = [
 
 const Aside: React.FC = () => {
   return (
-    <aside className="sticky top-0 h-screen bg-[#222222] p-6">
+    <aside className="sticky top-0 h-screen z-50 max-md:h-auto bg-[#222222] p-6">
       <div className="flex flex-col justify-between h-full">
-        <div>
-          <div className="flex justify-center pb-6 p-1 border-b border-[#909090]">
-            <img
-              className="block h-full h-[14px] w-auto object-contain"
-              src={ASIDE_ICONS.MAIN_LOGO}
-              alt="Log Out Icon"
-            />
-          </div>
-          <div className="pt-6">
-            <ul className="flex flex-col gap-2">
-              {AsideTopLinks.map((link) => (
-                <li key={link.href}>
-                  <AsideLink link={link}/>
-                </li>
-              ))}
-            </ul>
+        <div className="flex justify-center pb-6 p-1 border-b border-[#909090]">
+          <img
+            className="block h-full w-auto object-contain"
+            src={ASIDE_ICONS.MAIN_LOGO}
+            alt="Log Out Icon"
+          />
+        </div>
+        <div className="pt-6 flex flex-col justify-center h-full max-md:flex-row gap-2">
+          <ul className="flex flex-col max-md:flex-row gap-2 w-full">
+            {AsideTopLinks.map((link) => (
+              <li className="w-[200px] max-md:w-auto flex-grow" key={link.href}>
+                <AsideLink link={link}/>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto w-[200px] max-md:w-auto">
+            <LogOutButton/>
           </div>
         </div>
-        <LogOutButton />
       </div>
     </aside>
   )

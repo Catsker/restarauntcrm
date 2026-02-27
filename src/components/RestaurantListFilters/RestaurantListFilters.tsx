@@ -28,11 +28,11 @@ const RestaurantListFilters = ({ allRestaurantCuisines }: Props) => {
   }
 
   return (
-    <ul className="flex flex-wrap gap-2 mb-4">
+    <ul className="flex flex-wrap gap-2 mb-4 max-md:w-full">
       {allRestaurantCuisines.map((item) => (
-        <li key={item}>
+        <li key={item} className="max-md:flex-grow">
           <button
-            className={`p-2 text-xs border rounded-[999px] hover:bg-amber-200 ${
+            className={`p-2 text-xs border rounded-[999px] hover:bg-amber-200 w-full ${
               cuisines.includes(item) ? 'bg-amber-100' : ''
             }`}
             onClick={() => toggleCuisine(item)}

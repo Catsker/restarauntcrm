@@ -19,14 +19,18 @@ const OrdersPage: React.FC = () => {
           </div>
         ) : (
           <ul className="grid grid-cols-3 gap-6">
-            {Object.keys(allTables).map((tableNumber) => (
-              <li key={tableNumber} className="bg-[#F9F9F9] p-6">
-                <OrderTable
-                  tableNumber={tableNumber}
-                  tableData={allTables[tableNumber]}
-                />
-              </li>
-            ))}
+            {Object.keys(allTables).map((key) => {
+              const tableNumber = Number(key)
+
+              return (
+                <li key={tableNumber} className="bg-[#F9F9F9] p-6">
+                  <OrderTable
+                    tableNumber={tableNumber}
+                    tableData={allTables[tableNumber]}
+                  />
+                </li>
+              )
+            })}
           </ul>
         )}
       </div>

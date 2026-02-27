@@ -17,6 +17,8 @@ const TablePage: React.FC = () => {
   const {n} = routeApi.useParams()
   const tableNumber = Number(n)
 
+  const isValidTable = TABLES_LIST.some(table => table.tableNumber === tableNumber)
+
   const {currentTableDishes} = useTableOrders(tableNumber)
 
   const toggleDishMutation = useToggleDish()
@@ -35,6 +37,14 @@ const TablePage: React.FC = () => {
 
   if (isLoading) return <div className="p-6">Loading...</div>
   if (isError || !data || data.length === 0) return <div className="p-6 text-red-500">Error</div>
+  if (!isValidTable) return (
+    <div className="p-6">
+      <div className="p-6 rounded-2xl bg-[#F9F9F9] flex flex-col gap-3">
+        <p>Table №{tableNumber} does not exist. Please, select valid table from the list</p>
+        <Link className="text-blue-400" to="/tables">Go to /tables</Link>
+      </div>
+    </div>
+  )
 
   return (
     <div className="flex">

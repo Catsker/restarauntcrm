@@ -8,7 +8,6 @@ interface Props {
 }
 
 const OrderTable = ({tableData, tableNumber}: Props) => {
-  console.log("tableData", tableData)
   const clearTableMutation = useClearTable()
 
   return (
@@ -26,12 +25,10 @@ const OrderTable = ({tableData, tableNumber}: Props) => {
                 <p className="italic">{item.caloriesPerServing} kcal.</p>
                 <p className="italic">Waiting time: {item.cookTimeMinutes + item.prepTimeMinutes} min</p>
               </div>
-
             </div>
           </li>
         ))}
       </ul>
-
       <Link to={`/tables/${tableNumber}`} className="border bg-blue-300 p-2 w-full mt-auto mb-4 text-center rounded-l-full rounded-r-full">Edit table</Link>
       <button className="border p-2 w-full bg-red-300 rounded-l-full rounded-r-full" onClick={() => clearTableMutation.mutate(tableNumber)}>Cancel reservation</button>
     </div>

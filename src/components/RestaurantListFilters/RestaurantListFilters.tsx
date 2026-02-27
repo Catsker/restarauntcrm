@@ -1,33 +1,31 @@
 import type { Cuisine } from "@/types";
-import { getRouteApi } from '@tanstack/react-router';
-
-const routeApi = getRouteApi('/');
+import { useSearch, useNavigate } from '@tanstack/react-router'
 
 interface Props {
   allRestaurantCuisines: Cuisine[]
 }
 
 const RestaurantListFilters = ({ allRestaurantCuisines }: Props) => {
-  const { cuisines } = routeApi.useSearch();
+  const currentSearch = useSearch({ from: '/' })
+  const cuisines = currentSearch.cuisines || []
 
-  const navigate = routeApi.useNavigate();
-
-  const selectedCuisines = cuisines || [];
+  const navigate = useNavigate()
 
   const toggleCuisine = (cuisine: Cuisine) => {
-    const isSelected = selectedCuisines.includes(cuisine);
+    const isSelected = cuisines.includes(cuisine)
 
-    const newCuisines = isSelected
-      ? selectedCuisines.filter((c) => c !== cuisine)
-      : [...selectedCuisines, cuisine];
+    const updated = isSelected
+      ? cuisines.filter((c: Cuisine) => c !== cuisine)
+      : [...cuisines, cuisine]
 
     navigate({
-      search: (prev) => ({
-        ...prev,
-        cuisines: newCuisines.length > 0 ? newCuisines : undefined,
-      }),
-    });
-  };
+      to: '/',
+      search: {
+        ...currentSearch,
+        cuisines: updated.length ? updated : undefined,
+      }
+    })
+  }
 
   return (
     <ul className="flex flex-wrap gap-2 mb-4">
@@ -35,7 +33,7 @@ const RestaurantListFilters = ({ allRestaurantCuisines }: Props) => {
         <li key={item}>
           <button
             className={`p-2 text-xs border rounded-[999px] hover:bg-amber-200 ${
-              selectedCuisines.includes(item) ? 'bg-amber-100' : ''
+              cuisines.includes(item) ? 'bg-amber-100' : ''
             }`}
             onClick={() => toggleCuisine(item)}
           >

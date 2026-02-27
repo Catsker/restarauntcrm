@@ -19,20 +19,25 @@ const rootRoute = createRootRoute({
   ),
 })
 
+type IndexSearch = {
+  cuisines?: Cuisine[]
+}
+
 export const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
 
-  validateSearch: (search: Record<string, unknown>) => {
+  validateSearch: (search: Record<string, unknown>): IndexSearch => {
+    const cuisines = search.cuisines
+
+    if (!cuisines) return {}
+
     return {
-      cuisines: search.cuisines
-        ? Array.isArray(search.cuisines)
-          ? (search.cuisines as Cuisine[])
-          : ([search.cuisines] as Cuisine[])
-        : undefined,
+      cuisines: Array.isArray(cuisines)
+        ? cuisines as Cuisine[]
+        : [cuisines as Cuisine],
     }
   },
-
   beforeLoad: () => {
     const user = getStoredUser()
     if (!user) {

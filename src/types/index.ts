@@ -22,7 +22,7 @@ export const CUISINE = {
   HAWAIIAN: 'Hawaiian'
 } as const;
 
-export type Cuisine = typeof CUISINE[keyof typeof CUISINE] | string;
+export type Cuisine = typeof CUISINE[keyof typeof CUISINE];
 
 export type Dish = {
   image: string

@@ -25,7 +25,7 @@ const TablesPage: React.FC = () => {
     });
   };
 
-  const modifiedTablesList = TABLES_LIST.map((table: TableType) => {
+  const modifiedTablesList: TableType[] = TABLES_LIST.map((table: TableType): TableType => {
     if (allTables[table.tableNumber]) {
       return {...table, status: 'occupied'}
     }

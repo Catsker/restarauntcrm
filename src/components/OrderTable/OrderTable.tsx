@@ -18,7 +18,7 @@ const OrderTable = ({tableData, tableNumber}: Props) => {
           <li>
             <div className="flex gap-6">
               <div className="w-[15%]">
-                <img src={item.image} alt=""/>
+                <img src={item.image} className="w-full h-full object-cover" alt=""/>
               </div>
               <div className="flex flex-col">
                 <p className="font-bold">{item.name}</p>

@@ -47,7 +47,7 @@ const TablePage: React.FC = () => {
   )
 
   return (
-    <div className="flex">
+    <div className="flex max-md:flex-col">
       <Aside/>
       <div className="w-full p-6">
         <h1 className="text-2xl font-bold mb-4">Table №{tableNumber}</h1>
@@ -57,7 +57,7 @@ const TablePage: React.FC = () => {
             <Link to="/tables" className="text-blue-400">Go to /tables</Link>
           </div>
         ) : (
-          <ul className="grid grid-cols-5 gap-4">
+          <ul className="grid grid-cols-5 gap-4 max-xl:grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-1">
             {data.map((item) => {
               const isSelected = currentTableDishes.some((dish) => dish.id === item.id)
 

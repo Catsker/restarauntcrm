@@ -12,11 +12,11 @@ const LogOutButton: React.FC = () => {
   }
 
   return (
-    <button className="flex items-center gap-2 p-4 rounded-xl w-[200px] bg-[#393939] text-white" onClick={handleLogout}>
-      <div className="h-6 w-6 flex items-center justify-center">
+    <button className="flex text-nowrap items-center gap-2 w-full p-4 max-sm:p-2 rounded-xl bg-[#393939] text-white" onClick={handleLogout}>
+      <div className="h-6 w-6 flex items-center justify-center max-sm:hidden">
         <img src={ASIDE_ICONS.LOGOUT} alt="Log Out" />
       </div>
-      <p>Log Out</p>
+      <p className="">Log Out</p>
     </button>
   )
 }

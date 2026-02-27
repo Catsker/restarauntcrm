@@ -8,7 +8,7 @@ const OrdersPage: React.FC = () => {
   const {allTables} = useTableOrders()
 
   return (
-    <div className="flex">
+    <div className="flex max-md:flex-col">
       <Aside/>
       <div className="flex flex-col gap-3 p-6 w-full">
         <h3 className="text-2xl font-bold">Orders</h3>
@@ -18,7 +18,7 @@ const OrdersPage: React.FC = () => {
             <Link className="text-blue-400" to="/tables">Go to /tables</Link>
           </div>
         ) : (
-          <ul className="grid grid-cols-3 gap-6">
+          <ul className="grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 gap-6">
             {Object.keys(allTables).map((key) => {
               const tableNumber = Number(key)
 

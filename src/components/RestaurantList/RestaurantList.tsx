@@ -8,17 +8,23 @@ interface Props {
 }
 
 const RestaurantList = ({filteredRestaurants, allRestaurantCuisines}: Props) => (
-  <div className="py-4">
+  <div className="p-4">
     <RestaurantListFilters
       allRestaurantCuisines={allRestaurantCuisines}
     />
-    <div className="max-w-[300px]">
-      <ul className="flex flex-col gap-4">
+    <div className="max-w-[300px] max-md:max-w-full">
+      <ul className="
+    flex
+    flex-col
+    gap-4
+    w-full
+    max-md:flex-row
+    max-md:overflow-auto
+    max-md:items-stretch
+  ">
         {filteredRestaurants.map((item: RestaurantData) => (
           <li key={item.name}>
-            <Restaurant
-              restaurant={item}
-            />
+            <Restaurant restaurant={item}/>
           </li>
         ))}
       </ul>

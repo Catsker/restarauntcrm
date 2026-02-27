@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
   const allCuisines = [...new Set(data.map(r => r.cuisine))]
 
   return (
-    <div className="flex gap-4">
+    <div className="flex max-md:flex-col">
       <Aside />
       <div className="flex-1">
         <RestaurantList

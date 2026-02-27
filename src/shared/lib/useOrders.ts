@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getTablesOrders } from '@/shared/api/orders'
+import { getTablesOrders, clearTableInStorage } from '@/shared/api/orders'
 import type { RecipeType } from "@/types";
 
 const STORAGE_KEY = 'restaurant_tables_orders'
@@ -54,6 +54,17 @@ export const useToggleDish = () => {
 
   return useMutation({
     mutationFn: toggleDishInStorage,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tables_orders'] })
+    }
+  })
+}
+
+export const useClearTable = () => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: clearTableInStorage,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tables_orders'] })
     }
